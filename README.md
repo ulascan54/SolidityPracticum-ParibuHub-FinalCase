@@ -27,3 +27,4 @@ Install these prerequisites to follow along with the tutorial. See free video tu
 
 - Logo: https://www.adobe.com/express/create/logo/png
 - Icon: https://icons8.com/icons/set/nft
+- Colors: https://htmlcolors.com/palette/12/facebook
