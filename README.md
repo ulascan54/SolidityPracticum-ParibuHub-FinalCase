@@ -26,3 +26,4 @@ Install these prerequisites to follow along with the tutorial. See free video tu
 ## Resources
 
 - Logo: https://www.adobe.com/express/create/logo/png
+- Icon: https://icons8.com/icons/set/nft
