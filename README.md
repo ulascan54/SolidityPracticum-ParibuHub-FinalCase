@@ -2,14 +2,14 @@
 
 **Solidity kullanarak aşağıda verilen yapıların en az 7 tanesini içeren kendi özgün akıllı sözleşmenizi yazın.**
 
-- [] Function
-- [] Mapping
-- [] Array
-- [] Constructor
-- [] Struct
-- [] Require
-- [] Modifier
-- [] Event
+- [ ] Function
+- [ ] Mapping
+- [ ] Array
+- [ ] Constructor
+- [ ] Struct
+- [ ] Require
+- [ ] Modifier
+- [ ] Event
 
 _Bonus: Kontratınızda erc20/erc721/erc1155 standartlarını kullanın._
 _Bonus: Kontratınız için Front-end geliştirin._
