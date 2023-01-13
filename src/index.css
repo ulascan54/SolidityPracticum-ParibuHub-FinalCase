@@ -28,11 +28,11 @@ body {
   background-color: #0f0e13;
   background-image: radial-gradient(
       at 50% 50%,
-      hsl(302deg 25% 18%) 0,
+      rgb(34, 42, 57) 0,
       transparent 50%
     ),
     radial-gradient(at 0% 0%, rgb(15, 16, 21) 0, transparent 50%),
-    radial-gradient(at 50% 50%, rgb(39, 41, 89) 0, transparent 50%);
+    radial-gradient(at 50% 50%, rgb(39, 50, 89) 0, transparent 50%);
 }
 
 .gradient-bg-footer {
