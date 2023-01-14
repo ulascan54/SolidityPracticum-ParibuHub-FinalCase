@@ -1,4 +1,6 @@
 import Identicon from 'react-identicons'
+import { setGlobalState } from '../store'
+
 const imgHero = "https://images.cointelegraph.com/images/1434_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDQvY2E3NzI1ZmMtNDZkNS00OGIwLTkxYWQtYTU5Zjc4YmQ5ZDQ1LmpwZw==.jpg"
 export const Hero = () => {
 return (
@@ -15,7 +17,10 @@ return (
                 <p className="text-gray-500 font-semibold text-sm mt-3">Mint and collect  the hottest NFTs around.</p>
             </div>
             <div className="flex mt-5">
-                <button className='shadow-xl shadow-black text-white bg-[#476ec2] hover:bg-[#3453b6] md:text--xs p-2 rounded-full'>
+                <button className="shadow-xl shadow-black text-white bg-[#476ec2] hover:bg-[#3453b6] md:text--xs p-2 rounded-full "  onClick={() => {
+                    setGlobalState('modal','animate__bounceIn block');
+                    setGlobalState('modalBg','animate__fadeIn block animate__faster');
+                }} >
                     Create NFT
                 </button>
             </div>
