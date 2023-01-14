@@ -8,12 +8,17 @@ return (
     <div className="bg-[#151c25] gradient-bg-artworks">
         <div className="w-4/5 py-10 mx-auto">
             <h4 className="text-white text-3xl font-bold uppercase text-gradient">Latest Artworks</h4>
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gaps-6 md:gaps-4 lg:gaps-3 py-2.5">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-4 lg:gap-3 py-2.5">
                 {Array(4)
                 .fill()
                 .map((nft,i)=>(
                     <Card key={i} nft={i+1} />
                 ))}
+            </div>
+            <div className=" text-center my-5">
+            <button className='shadow-lg shadow-black text-white bg-[#476ec2] hover:bg-[#3453b6]  md:text--xs p-2 rounded-full'>
+                Load More
+                </button>
             </div>
         </div>
     </div>
@@ -30,7 +35,7 @@ const Card = ({ nft }) => (
                 <small className="text-xs">Current Price</small>
                 <p className="text-sm font-semibold">0.34 ETH</p>
             </div>
-            <button className='shadow-xl shadow-black text-white bg-[#476ec2] hover:bg-[#3453b6] md:text--xs px-1.5 py-1 rounded-full'>
+            <button className='shadow-md shadow-black text-white bg-[#476ec2] hover:bg-[#3453b6] hover:underline md:text--xs px-1.5 py-1 rounded-full'>
             View Details
                 </button>
         </div>
