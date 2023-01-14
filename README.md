@@ -11,20 +11,16 @@
 - [ ] Modifier
 - [ ] Event
 
-_Bonus: Kontratınızda erc20/erc721/erc1155 standartlarını kullanın._
-_Bonus: Kontratınız için Front-end geliştirin._
+_ Bonus: Kontratınızda erc20/erc721/erc1155 standartlarını kullanın._
+_ Bonus: Kontratınız için Front-end geliştirin._
 
-## Dependencies
-
-Install these prerequisites to follow along with the tutorial. See free video tutorial or a full explanation of each prerequisite.
+## Resources
 
 - NPM: https://nodejs.org
 - Truffle: https://github.com/trufflesuite/truffle
 - Ganache-CLI: https://docs.nethereum.com/en/latest/ethereum-and-clients/ganache-cli/
 - Tailwind CSS: https://tailwindcss.com/
-
-## Resources
-
+- Solidity: https://docs.soliditylang.org/en/v0.8.17/
 - Logo: https://www.adobe.com/express/create/logo/png
 - Icon: https://icons8.com/icons/set/nft
 - Colors: https://htmlcolors.com/palette/12/facebook
