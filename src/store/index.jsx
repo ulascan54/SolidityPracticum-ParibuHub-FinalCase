@@ -6,8 +6,14 @@ const { setGlobalState,useGlobalState,getGlobalState } = createGlobalState({
     showModal:'hidden',
     showModalBg:'hidden',
     updateModal:'hidden',
-    updateModalBg:'hidden'
+    updateModalBg:'hidden',
+    loading:{show:false,msg:''}
 
 })
 
-export {useGlobalState,setGlobalState,getGlobalState}
+const setLoadingMsg =(msg)=>{
+    const loading = getGlobalState('loading')
+    setGlobalState('loading', {...loading, msg})
+}
+
+export {useGlobalState,setGlobalState,getGlobalState ,setLoadingMsg}
