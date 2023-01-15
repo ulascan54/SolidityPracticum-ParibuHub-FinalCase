@@ -84,6 +84,35 @@ body {
 
 
 @layer components {
+
+ /* Header component - START */
+  .header-container{
+    @apply w-4/5 flex md:justify-center justify-between mx-auto items-center py-4
+  }
+
+  .header-logo-container{
+    @apply md:flex-[0.5] flex-initial justify-center items-center
+  }
+
+  .header-logo{
+    @apply w-40 cursor-pointer
+  }
+
+  .header-menu-container{
+    @apply md:flex-[0.5] text-white md:flex  hidden list-none justify-between items-center flex-initial
+  }
+
+  .header-menu-item{
+    @apply mx-4 cursor-pointer
+  }
+
+  .header-button{
+    @apply shadow-lg shadow-black text-white bg-[#476ec2] hover:bg-[#3453b6] md:text-xs p-2 rounded-full
+  }
+ /* Header component - END */
+
+
+
 /* ShowNFT component - START */
   .shownft-main {
     @apply fixed top-0 left-0 w-screen h-screen  items-center justify-center bg-black bg-opacity-50;
