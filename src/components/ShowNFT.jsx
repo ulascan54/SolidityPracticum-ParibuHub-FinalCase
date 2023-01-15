@@ -17,13 +17,12 @@ const ShowNFT = () => {
         setTimeout(() => {
             setGlobalState("showModal", "hidden")
             setGlobalState("showModalBg", "hidden")
-        }, 2000);
+        }, 750);
     }
     return (
-        <div className={`fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-black bg-opacity-50 animate__animated  ${showModalBg}`}>
-            <div className={`bg-[#151c25] shadow-lg shadow-blue-500 rounded-xl w-11/12 md:w-2/5 h-7/12 animate__animated  p-6 ${showModal}`}>
+        <div className={`shownft-main flex animate__animated  ${showModalBg}`}>
+            <div className={`shownft-container animate__animated  ${showModal}`}>
                 <div className="flex flex-col">
-
                     <div className="flex justify-between text-gray-400 items-center">
                         <p className=" font-semibold ">Buy NFT</p>
                         <button type="button" className="border-0 bg-transparent focus:outline-none" onClick={closeModal}>
