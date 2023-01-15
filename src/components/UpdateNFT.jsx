@@ -28,8 +28,8 @@ const UpdateNFT = () => {
         setPrice("")
     }
   return (
-    <div className={`fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-black bg-opacity-50 animate__animated  ${modalBg}`}>
-        <div className={`bg-[#151c25] shadow-lg shadow-blue-500 rounded-xl w-11/12 md:w-2/5 h-7/12 animate__animated  p-6 ${modal}`}>
+    <div className={`popup-container animate__animated flex ${modalBg}`}>
+        <div className={` animate__animated ${modal}`}>
             <form onSubmit={handleSubmit} className="flex flex-col">
 
                 <div className="flex justify-between text-gray-400 items-center">

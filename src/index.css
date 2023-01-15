@@ -325,14 +325,66 @@ body {
   }
 /* Footer component - END */
 
-/* ShowNFT component - START */
-  .shownft-main {
-    @apply fixed top-0 left-0 w-screen h-screen  items-center justify-center bg-black bg-opacity-50;
+/* Popup classes - START */
+
+  .popup-container{
+    @apply fixed top-0 left-0 w-screen h-screen items-center justify-center bg-black bg-opacity-50
   }
 
-  .shownft-container {
+  .popup-container>div{
     @apply bg-[#151c25] shadow-lg shadow-blue-500 rounded-xl w-11/12 md:w-2/5 p-6;
   }
+
+/* Popup classes - END */
+
+/* CreateNFT component - START */
+  .createnft-form{
+    @apply flex flex-col
+  }
+  .createnft-form>div:nth-child(1){
+    @apply flex justify-between text-gray-400 items-center
+  }
+
+  .createnft-form>div:nth-child(1)>p{
+    @apply font-semibold 
+  }
+
+  .createnft-form>div:nth-child(1)>button{
+    @apply border-0 bg-transparent focus:outline-none
+  }
+
+  .createnft-form>div:nth-child(2){
+    @apply flex justify-center items-center rounded-xl mt-5 
+  }
+
+  .createnft-form>div:nth-child(2) div{
+    @apply shrink-0 h-20 w-20 rounded-xl overflow-hidden
+  }
+
+  .createnft-form>div:nth-child(2) div img{
+    @apply w-full object-cover h-full cursor-pointer
+  }
+
+  .createnft-form-item{
+    @apply flex justify-between items-center bg-gray-800 rounded-xl mt-5
+  }
+
+  .createnft-form-input{
+    @apply block w-full text-sm text-slate-500 focus:outline-none  focus:ring-0 bg-transparent border-0
+  }
+
+  .createnft-form-input-file{
+    @apply  block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:rounded-full file:px-4 file:border-0 file:text-sm file:font-semibold hover:file:bg-[#476ec2] focus:outline-none cursor-pointer focus:ring-0 hover:file:text-white hover:file:cursor-pointer
+  }
+
+  .createnft-form>button{
+    @apply flex justify-center items-center shadow-lg shadow-black   text-white bg-[#476ec2] hover:bg-[#3453b6] md:text-xs p-2 rounded-full mt-5 text-base
+  }
+/* CreateNFT component - END */
+
+/* ShowNFT component - START */
+
+
 
 
 /* ShowNFT component - END */

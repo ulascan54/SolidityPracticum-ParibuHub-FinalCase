@@ -20,8 +20,8 @@ const ShowNFT = () => {
         }, 750);
     }
     return (
-        <div className={`shownft-main flex animate__animated  ${showModalBg}`}>
-            <div className={`shownft-container animate__animated  ${showModal}`}>
+        <div className={`popup-container flex animate__animated  ${showModalBg}`}>
+            <div className={`animate__animated  ${showModal}`}>
                 <div className="flex flex-col">
                     <div className="flex justify-between text-gray-400 items-center">
                         <p className=" font-semibold ">Buy NFT</p>
