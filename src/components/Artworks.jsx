@@ -16,8 +16,8 @@ return (
                     <Card key={i} nft={i+1} />
                 ))}
             </div>
-            <div className=" text-center my-5">
-            <button className='shadow-lg shadow-black text-white bg-[#476ec2] hover:bg-[#3453b6]  md:text--xs p-2 rounded-full'>
+            <div className="loadmore-button">
+            <button>
                 Load More
                 </button>
             </div>

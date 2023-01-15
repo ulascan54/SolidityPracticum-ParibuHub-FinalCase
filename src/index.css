@@ -85,6 +85,14 @@ body {
 
 @layer components {
 
+  .loadmore-button{
+    @apply text-center my-5
+  }
+
+  .loadmore-button button{
+    @apply shadow-lg shadow-black text-white bg-[#476ec2] hover:bg-[#3453b6]  md:text-xs p-2 rounded-full
+  }
+
  /* Header component - START */
   .header-container{
     @apply w-4/5 flex md:justify-center justify-between mx-auto items-center py-4
@@ -177,6 +185,53 @@ body {
   }
 /* Hero component - END */
 
+/* Transactions component - START */
+
+  .transactions-container{
+    @apply bg-[#151c25]
+  }
+
+  .transactions-container>div{
+    @apply w-4/5 py-10 mx-auto
+  }
+
+  .transactions-title{
+    @apply text-white text-3xl font-bold uppercase text-gradient
+  }
+
+  .transactions-container-grid{
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-4 lg:gap-2 py-2.5
+  }
+
+  .transaction-container{
+    @apply flex justify-between items-center border border-[#476ec2] text-gray-400 w-full shadow-xl shadow-black rounded-md overflow-hidden bg-gray-800 my-2 p-3
+  }
+
+  .transaction-icon{
+    @apply rounded-md shadow-sm shadow-blue-500 p-2
+  }
+
+  .transaction h4{
+    @apply text-sm text-white
+  }
+
+  .transaction small{
+    @apply flex justify-start items-center
+  }
+
+  .transaction small span{
+    @apply mr-1
+  }
+
+  .transaction small a{
+    @apply text-blue-500 mr-2
+  }
+
+  .transaction-container p{
+    @apply text-sm font-medium
+  }
+/* Transactions component - END */
+
 /* ShowNFT component - START */
   .shownft-main {
     @apply fixed top-0 left-0 w-screen h-screen  items-center justify-center bg-black bg-opacity-50;
@@ -185,6 +240,8 @@ body {
   .shownft-container {
     @apply bg-[#151c25] shadow-lg shadow-blue-500 rounded-xl w-11/12 md:w-2/5 p-6;
   }
+
+
 /* ShowNFT component - END */
 
 }
