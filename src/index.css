@@ -185,6 +185,56 @@ body {
   }
 /* Hero component - END */
 
+/* Artworks component - START */
+  .artworks-container{
+    @apply bg-[#151c25]
+  }
+
+  .artworks-container>div{
+    @apply w-4/5 py-10 mx-auto
+  }
+
+  .artworks-container>div>h4{
+    @apply text-white text-3xl font-bold uppercase
+  }
+
+  .artworks-items-container{
+    @apply grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-4 lg:gap-3 py-2.5
+  }
+
+  .artwork-container{
+    @apply w-full shadow-xl shadow-black rounded-md overflow-hidden bg-gray-800 my-2 p-3
+  }
+
+  .artwork-container>img{
+    @apply h-60 w-full object-cover shadow-lg shadow-black rounded-lg mb-3
+  }
+
+  .artwork-container>h4{
+    @apply text-white font-semibold
+  }
+
+  .artwork-container>p{
+    @apply text-gray-400 text-sm my-1
+  }
+
+  .artwork-container>div{
+    @apply flex justify-between items-center text-white
+  }
+
+  .artwork-container>div>div{
+    @apply flex flex-col text-xs
+  }
+
+  .artwork-container>div>div>p{
+    @apply font-semibold
+  }
+
+  .artwork-button{
+    @apply shadow-md shadow-black text-white bg-[#476ec2] hover:bg-[#3453b6] hover:underline md:text-xs px-1.5 py-1 rounded-full
+  }
+/* Artworks component - END */
+
 /* Transactions component - START */
 
   .transactions-container{
