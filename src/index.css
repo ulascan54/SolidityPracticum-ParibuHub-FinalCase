@@ -111,7 +111,71 @@ body {
   }
  /* Header component - END */
 
+/* Hero component - START */
+  .hero-container{
+    @apply flex flex-col md:flex-row w-4/5 justify-between items-center mx-auto py-10
+  }
 
+  .hero-bannerside{
+    @apply md:w-3/6 w-full
+  }
+  
+  .hero-title{
+    @apply text-white text-5xl font-bold
+  }
+
+  .hero-description{
+    @apply text-gray-500 font-semibold text-sm mt-3
+  }
+
+  .hero-button-container{
+    @apply flex mt-5
+  }
+
+  .hero-button{
+    @apply shadow-xl shadow-black text-white bg-[#476ec2] hover:bg-[#3453b6] md:text-xs p-2 rounded-full
+  }
+
+  .hero-data{
+    @apply w-3/4 flex justify-between items-center mt-5
+  }
+
+  .hero-data div{
+    @apply text-white
+  }
+
+  .hero-data div  p{
+    @apply font-bold
+  }
+
+  .hero-data div small{
+    @apply  text-gray-300
+  }
+
+  .hero-imgside{
+    @apply  shadow-xl shadow-black md:w-2/5 w-full mt-10 md:mt-0 rounded-md overflow-hidden bg-gray-800
+  }
+
+  .hero-imgside img{
+    @apply h-60 w-full object-cover
+  }
+
+  .hero-imgside>div{
+    @apply flex justify-start items-center p-3
+  }
+
+  .hero-identicon{
+    @apply  h-10 w-10 object-contain rounded-full mr-3
+  }
+
+  .hero-imgside p{
+    @apply text-white font-semibold
+  }
+
+  .hero-imgside small{
+    @apply text-[#ADB9D3] font-bold
+  }
+/* Hero component - END */
 
 /* ShowNFT component - START */
   .shownft-main {
