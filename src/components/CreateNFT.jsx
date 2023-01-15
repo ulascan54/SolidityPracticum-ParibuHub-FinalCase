@@ -25,7 +25,7 @@ const CreateNFT = () => {
         setTimeout(() => {
             setGlobalState("modal","hidden")
             setGlobalState("modalBg","hidden")
-        }, 2000);
+        }, 750);
         resetForm()
     }
     const resetForm=()=>{

@@ -4,7 +4,9 @@ const { setGlobalState,useGlobalState,getGlobalState } = createGlobalState({
     modal:'hidden',
     modalBg:'hidden',
     showModal:'hidden',
-    showModalBg:'hidden'
+    showModalBg:'hidden',
+    updateModal:'hidden',
+    updateModalBg:'hidden'
 
 })
 

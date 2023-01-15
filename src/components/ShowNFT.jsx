@@ -62,9 +62,16 @@ const ShowNFT = () => {
                             Purchase
                         </button>
 
-                        {/* <button className="flex justify-center items-center shadow-lg shadow-black text-md   text-white bg-[#476ec2] hover:bg-[#3453b6] md:text--xs p-2 rounded-full mt-5 w-full">
+                        <button className="flex justify-center items-center shadow-lg shadow-black text-md   text-white bg-[#476ec2] hover:bg-[#3453b6] md:text--xs p-2 rounded-full mt-5 w-full"
+                            onClick={() => {
+                                setGlobalState('updateModal','animate__bounceIn block');
+                                setGlobalState('updateModalBg','animate__fadeIn block animate__faster');
+                                setGlobalState('showModal','hidden');
+                                setGlobalState('showModalBg','hidden');
+                            }}
+                        >
                             Change
-                        </button> */}
+                        </button>
                     </div>
                 </div>
             </div>
