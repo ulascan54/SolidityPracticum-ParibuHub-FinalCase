@@ -384,6 +384,91 @@ body {
 
 /* ShowNFT component - START */
 
+  .shownft-container{
+    @apply flex flex-col
+  }
+  .shownft-container>div:nth-child(1){
+    @apply flex justify-between text-gray-400 items-center
+  }
+
+  .shownft-container>div:nth-child(1)>p{
+    @apply font-semibold 
+  }
+
+  .shownft-container>div:nth-child(1)>button{
+    @apply border-0 bg-transparent focus:outline-none
+  }
+
+  .shownft-container>div:nth-child(2){
+    @apply flex justify-center items-center rounded-xl mt-5 
+  }
+
+  .shownft-container>div:nth-child(2) div{
+    @apply shrink-0 h-40 w-40 rounded-xl overflow-hidden
+  }
+
+  .shownft-container>div:nth-child(2) div img{
+    @apply w-full object-cover h-full cursor-pointer
+  }
+
+  .shownft-container>div:nth-child(3){
+    @apply flex flex-col justify-start rounded-xl mt-5
+  }
+
+  .shownft-container>div:nth-child(3)>h4{
+    @apply text-white font-semibold
+  }
+  .shownft-container>div:nth-child(3)>p{
+    @apply text-gray-400 text-xs my-1
+  }
+
+  .shownft-container>div:nth-child(3)>div{
+    @apply flex justify-between items-center mt-3 text-white
+  }
+
+  .shownft-container>div:nth-child(3)>div>div:nth-child(1){
+    @apply flex justify-start items-center
+  }
+  
+  .shownft-container>div:nth-child(3)>div>div:nth-child(1) .identicon{
+    @apply h-10 object-contain rounded-full mr-3
+  }
+
+  .shownft-container>div:nth-child(3)>div>div:nth-child(1)>div{
+    @apply flex flex-col justify-center items-start
+  }
+
+  .shownft-container>div:nth-child(3)>div>div:nth-child(1)>div>small:nth-child(1){
+    @apply text-white font-bold
+  }
+
+  .shownft-container>div:nth-child(3)>div>div:nth-child(1)>div>small:nth-child(2){
+    @apply text-blue-400 font-semibold
+  }
+
+  .shownft-container>div:nth-child(3)>div>div:nth-child(2){
+    @apply flex flex-col
+  }
+
+  .shownft-container>div:nth-child(3)>div>div:nth-child(2) small{
+    @apply text-xs 
+  }
+
+  .shownft-container>div:nth-child(3)>div>div:nth-child(2) p{
+    @apply text-sm font-semibold
+  }
+
+
+  .shownft-container>div:nth-child(4){
+    @apply flex justify-between items-center space-x-2
+  }
+
+  .shownft-container>div:nth-child(4)>button{
+    @apply flex justify-center items-center shadow-lg shadow-black text-base   text-white bg-[#476ec2] hover:bg-[#3453b6] md:text-xs p-2 rounded-full mt-5 w-full
+  }
+
+
+
 
 
 
