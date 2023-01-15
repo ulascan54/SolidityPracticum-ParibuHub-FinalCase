@@ -30,27 +30,26 @@ const UpdateNFT = () => {
   return (
     <div className={`popup-container animate__animated flex ${modalBg}`}>
         <div className={` animate__animated ${modal}`}>
-            <form onSubmit={handleSubmit} className="flex flex-col">
+            <form onSubmit={handleSubmit} className="updatenft-form">
 
-                <div className="flex justify-between text-gray-400 items-center">
-                    <p className=" font-semibold ">Candy NFT</p>
-                    <button type="button" className="border-0 bg-transparent focus:outline-none" onClick={closeModal}>
+                <div>
+                    <p>Candy NFT</p>
+                    <button type="button" onClick={closeModal}>
                         <FaTimes />
                     </button>
                 </div>
 
-                <div className="flex justify-center items-center rounded-xl mt-5 ">
-                    <div className="shrink-0 h-20 w-20 rounded-xl overflow-hidden">
-                        <img className="w-full object-cover h-full cursor-pointer"  src={imgHero} alt="NFT" />
+                <div>
+                    <div>
+                        <img  src={imgHero} alt="NFT" />
                     </div>
                 </div>
 
 
 
 
-                <div className=" flex justify-between items-center bg-gray-800 rounded-xl mt-5">
+                <div>
                         <input 
-                        className="block w-full text-sm text-slate-500 focus:outline-none  focus:ring-0 bg-transparent border-0 "
                         placeholder="Price (ETH)"
                         min={0.01}
                         step={0.01}
@@ -63,7 +62,7 @@ const UpdateNFT = () => {
 
 
 
-                <button className="flex justify-center items-center shadow-lg shadow-black text-md   text-white bg-[#476ec2] hover:bg-[#3453b6] md:text--xs p-2 rounded-full mt-5">
+                <button className="">
                     Update Now
                 </button>
             </form>
