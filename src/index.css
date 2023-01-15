@@ -282,6 +282,49 @@ body {
   }
 /* Transactions component - END */
 
+/* Footer component - START */
+
+  .footer-container{
+    @apply w-full flex flex-col md:justify-center justify-between items-center p-4 gradient-bg-footer
+  }
+
+  .footer-container>div{
+    @apply w-full flex sm:flex-row flex-col justify-between items-center my-4
+  }
+
+  .footer-logo{
+    @apply flex flex-[0.45] justify-center
+  }
+
+  .footer-logo>img{
+    @apply w-60
+  }
+
+  .footer-menu{
+    @apply flex flex-1 justify-evenly items-center flex-wrap sm:mt-0 mt-5 w-full text-white text-base text-center
+  }
+
+  .footer-menu p{
+    @apply cursor-pointer mx-2 my-4
+  }
+
+  .footer-info{
+    @apply flex flex-[0.25] flex-col-reverse items-center
+  }
+
+  .footer-info p{
+    @apply text-white text-right text-sm mr-4
+  }
+
+  .footer-container>p{
+    @apply text-white text-center text-sm
+  }
+
+  .footer-container>p a:hover{
+    @apply underline text-blue-400
+  }
+/* Footer component - END */
+
 /* ShowNFT component - START */
   .shownft-main {
     @apply fixed top-0 left-0 w-screen h-screen  items-center justify-center bg-black bg-opacity-50;
