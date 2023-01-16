@@ -134,4 +134,10 @@ contract ParibuNFT is ERC721Enumerable, Ownable {
         minted[id - 1].cost = newPrice;
         return true;
     }
+
+    //The Payment Function - main pay function
+    function payTo(address to, uint256 amount) internal {
+        (bool success, ) = payable(to).call{value: amount}("");
+        require(success);
+    }
 }
