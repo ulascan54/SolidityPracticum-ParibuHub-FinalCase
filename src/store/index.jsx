@@ -8,7 +8,7 @@ const { setGlobalState,useGlobalState,getGlobalState } = createGlobalState({
     updateModal:'hidden',
     updateModalBg:'hidden',
     loading:{show:false,msg:''},
-    alert:{show:true,msg:'',color:''}
+    alert:{show:false,msg:'',color:''}
 
 })
 const setAlert=(msg,color='green')=>{
