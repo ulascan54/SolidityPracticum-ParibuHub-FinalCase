@@ -1,3 +1,4 @@
+import { kMaxLength } from "buffer"
 import {createGlobalState} from "react-hooks-global-state"
 
 const { setGlobalState,useGlobalState,getGlobalState } = createGlobalState({
@@ -8,7 +9,12 @@ const { setGlobalState,useGlobalState,getGlobalState } = createGlobalState({
     updateModal:'hidden',
     updateModalBg:'hidden',
     loading:{show:false,msg:''},
-    alert:{show:false,msg:'',color:''}
+    alert:{show:false,msg:'',color:''},
+    connectedAccount:'',
+    nft:null,
+    nfts:[],
+    transactions:[],
+    contract:null
 
 })
 const setAlert=(msg,color='green')=>{
@@ -24,4 +30,16 @@ const setLoadingMsg =(msg)=>{
     setGlobalState('loading', {...loading, msg})
 }
 
-export {useGlobalState,setGlobalState,getGlobalState ,setLoadingMsg ,setAlert}
+const truncate = (text, startChars, endChars, maxLength) => {
+    if (text.length > maxLength) {
+        var start = text.substring(0, startChars)
+        var end = text.substring(text.length - endChars, text.length)
+        while (start.length + end.length < maxLength) {
+            start = start + '.'
+        }
+        return start + end
+    }
+    return text
+}
+
+export {useGlobalState,setGlobalState,getGlobalState ,setLoadingMsg ,setAlert,truncate}

@@ -12,7 +12,7 @@ This is a Particum finishing project.To successfully complete the program, I pre
 - [x] Constructor
 - [x] Struct
 - [x] Require
-- [ ] Modifier
+- [x] Modifier
 - [x] Event
 
 - [x] Bonus: Kontratınızda erc20/erc721/erc1155 standartlarını kullanın.
