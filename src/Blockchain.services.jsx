@@ -30,17 +30,42 @@ const connectWallet = async () => {
         if(!ethereum) return alert('Please install Metamask')
         const accounts = await ethereum.request({method:'eth_accounts'})
         setGlobalState('connectedAccount',accounts[0].toLowerCase())
-        window
     }catch (error) {
         reportError(error)
     }
 }
 
 const isWalletConnected=async () => {
-    
+    try {
+        if(!ethereum) return alert('Please install Metamask')
+        const accounts = await ethereum.request({method:'eth_accounts'})
+
+        window.ethereum.on('chainChanged',async (chainId) => {
+            window.location.reload()
+        })
+
+        window.ethereum.on('accountsChanged',async () => {
+            setGlobalState('connectedAccount', accounts[0].toLowerCase())
+            await isWalletConnected()
+        })
+
+        if(accounts.length){
+            setGlobalState('connectedAccount', accounts[0].toLowerCase())
+        }else{
+            alert('Please connect your wallet')
+            console.log('No accounts found !')
+        }
+
+
+    } catch (error) {
+        
+    }
+
 }
 
 const reportError=(error) => {
     setAlert(JSON.stringify(error),'red')
     throw new Error('No Ethereum Object.')
 }
+
+export { connectWallet, isWalletConnected}
