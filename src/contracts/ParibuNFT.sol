@@ -17,4 +17,26 @@ contract ParibuNFT is ERC721Enumerable, Ownable {
     uint256 public supply = 0;
     uint256 public totalTx = 0;
     uint256 public cost = 0.01 ether;
+
+    // Defining Events and Structures
+    event Sale(
+        uint256 id,
+        address indexed owner,
+        uint256 cost,
+        string metadataURI,
+        uint256 timestamp
+    );
+
+    struct TransactionStruct {
+        uint256 id;
+        address owner;
+        uint256 cost;
+        string title;
+        string description;
+        string metadataURI;
+        uint256 timestamp;
+    }
+
+    TransactionStruct[] transactions;
+    TransactionStruct[] minted;
 }
