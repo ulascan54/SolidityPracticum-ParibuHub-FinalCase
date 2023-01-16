@@ -1,5 +1,9 @@
 import MainLogo from '../assests/PARIBU-NFT-logos-transparent.png'
+import Identicon from 'react-identicons'
+import { connectWallet } from '../Blockchain.services'
+import { truncate, useGlobalState } from '../store'
 const Header = () => {
+  const [connectedAccount] = useGlobalState('connectedAccount')
   return (
     <div className="header-container">
         <div className='header-logo-container'>
@@ -13,9 +17,16 @@ const Header = () => {
           <li className='header-menu-item'>Community</li>
         </ul>
 
-        <button className='header-button'>
+        <button className={`header-button ${connectedAccount ? 'hidden' : 'block'}`} onClick={connectWallet}>
           Connect Wallet
         </button>
+
+        <div className={`header-user flex ${connectedAccount ? 'block' : 'hidden'}`}>
+          <div>
+            <Identicon className="header-identicon"  string={truncate(connectedAccount,4,4,11)} size={30} />
+          </div>
+          <p>{truncate(connectedAccount,4,4,11)}</p>
+        </div>
     </div>
   )
 }

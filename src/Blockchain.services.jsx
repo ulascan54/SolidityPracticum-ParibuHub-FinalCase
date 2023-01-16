@@ -11,7 +11,7 @@ const getEthereumContract = async () => {
     if(connectedAccont){
         const web3 = window.web3
         const networkId= await web3.eth.net.getId()
-        const networkData= abi.networks.[networkId]
+        const networkData= abi.networks[networkId]
 
         if(networkData){
             const contract = new web3.eth.Contract(abi.abi, networkData.address)
@@ -28,7 +28,7 @@ const getEthereumContract = async () => {
 const connectWallet = async () => {
     try{
         if(!ethereum) return alert('Please install Metamask')
-        const accounts = await ethereum.request({method:'eth_accounts'})
+        const accounts = await ethereum.request({method:'eth_requestAccounts'})
         setGlobalState('connectedAccount',accounts[0].toLowerCase())
     }catch (error) {
         reportError(error)
@@ -38,7 +38,7 @@ const connectWallet = async () => {
 const isWalletConnected=async () => {
     try {
         if(!ethereum) return alert('Please install Metamask')
-        const accounts = await ethereum.request({method:'eth_accounts'})
+        const accounts = await ethereum.request({method:'eth_requestAccounts'})
 
         window.ethereum.on('chainChanged',async (chainId) => {
             window.location.reload()
@@ -57,9 +57,7 @@ const isWalletConnected=async () => {
         }
 
 
-    } catch (error) {
-        
-    }
+    } catch (error) {}
 
 }
 

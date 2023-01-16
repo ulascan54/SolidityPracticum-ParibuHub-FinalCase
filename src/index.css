@@ -115,7 +115,23 @@ body {
   }
 
   .header-button{
-    @apply shadow-lg shadow-black text-white bg-[#476ec2] hover:bg-[#3453b6] md:text-xs p-2 rounded-full
+    @apply shadow-lg shadow-black text-white bg-[#476ec2] hover:bg-[#3453b6] md:text-xs p-2 rounded-full ml-4
+  }
+
+  .header-user{
+    @apply justify-center items-center flex-col ml-5 
+  }
+
+  .header-user>div{
+    @apply shadow-md bg-white  shadow-black overflow-hidden flex justify-center items-center h-[34px] w-[34px] rounded-full border-solid border-blue-300 border-2
+  }
+
+  .header-user>p{
+    @apply text-white text-xs font-semibold mt-2
+  }
+
+  .header-identicon{
+    @apply   object-contain rounded-full 
   }
  /* Header component - END */
 
