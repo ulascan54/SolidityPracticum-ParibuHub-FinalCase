@@ -57,8 +57,22 @@ const isWalletConnected=async () => {
         }
 
 
-    } catch (error) {}
+    } catch (error) {reportError(error)}
 
+}
+
+const mintNFT = async({title,description,metadataURI,price})=>{
+    try {
+        price = window.web3.utils.towWei(price.toString(),'ether')
+        const contract = await getEthereumContract()
+        const connectedAccount = getGlobalState('connectedAccount')
+        const mintPrice = window.web3.utils.toWei('0.01','ether')
+
+        await contract.methods.payToMint(title,description,metadataURI,price).send({form:connectedAccount,value:mintPrice})
+        return true
+    } catch (error) {
+        reportError(error)
+    }
 }
 
 const reportError=(error) => {
@@ -66,4 +80,4 @@ const reportError=(error) => {
     throw new Error('No Ethereum Object.')
 }
 
-export { connectWallet, isWalletConnected}
+export { connectWallet, isWalletConnected,mintNFT}
