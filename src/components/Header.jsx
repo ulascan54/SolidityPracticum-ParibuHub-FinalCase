@@ -21,7 +21,7 @@ const Header = () => {
           Connect Wallet
         </button>
 
-        <div className={`header-user flex ${connectedAccount ? 'block' : 'hidden'}`}>
+        <div className={`header-user flex ${!connectedAccount ? 'hidden' : 'block'}`}>
           <div>
             <Identicon className="header-identicon"  string={truncate(connectedAccount,4,4,11)} size={30} />
           </div>

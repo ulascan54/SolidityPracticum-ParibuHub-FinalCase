@@ -374,11 +374,11 @@ body {
   }
 
   .createnft-form>div:nth-child(2) div{
-    @apply shrink-0 h-20 w-20 rounded-xl overflow-hidden
+    @apply shrink-0 h-20 w-20 rounded-xl overflow-hidden bg-white
   }
 
   .createnft-form>div:nth-child(2) div img{
-    @apply w-full object-cover h-full cursor-pointer
+    @apply w-full object-cover h-full
   }
 
   .createnft-form-item{

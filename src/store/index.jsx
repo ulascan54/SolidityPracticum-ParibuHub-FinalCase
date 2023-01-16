@@ -1,4 +1,3 @@
-import { kMaxLength } from "buffer"
 import {createGlobalState} from "react-hooks-global-state"
 
 const { setGlobalState,useGlobalState,getGlobalState } = createGlobalState({
@@ -26,8 +25,7 @@ const setAlert=(msg,color='green')=>{
 }
 
 const setLoadingMsg =(msg)=>{
-    const loading = getGlobalState('loading')
-    setGlobalState('loading', {...loading, msg})
+    setGlobalState('loading', {show:true, msg})
 }
 
 const truncate = (text, startChars, endChars, maxLength) => {

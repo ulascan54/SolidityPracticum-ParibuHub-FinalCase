@@ -1,7 +1,24 @@
 import { useState } from 'react'
-import {FaTimes} from "react-icons/fa"
-import { setGlobalState, useGlobalState } from "../store"
-const imgHero = "https://images.cointelegraph.com/images/1434_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDQvY2E3NzI1ZmMtNDZkNS00OGIwLTkxYWQtYTU5Zjc4YmQ5ZDQ1LmpwZw==.jpg"
+import { FaTimes } from "react-icons/fa"
+import { create } from 'ipfs-http-client'
+import { setAlert, setGlobalState, setLoadingMsg, useGlobalState } from "../store"
+import { mintNFT } from '../Blockchain.services'
+
+const auth =
+    'Basic ' +
+    Buffer.from(
+    'x' + ':' + 'x',
+    ).toString('base64')
+ 
+
+  const client = create({
+    host: 'ipfs.infura.io',
+    port: '5001',
+    protocol: 'https',
+    headers: {
+      authorization: auth,
+    },
+  })
 
 const CreateNFT = () => {
     const [modal] = useGlobalState("modal")
@@ -11,28 +28,61 @@ const CreateNFT = () => {
     const [price,setPrice] = useState("")
     const [fileUrl,setFileUrl] = useState("")
     const [imgBase64,setImgBase64] = useState(null)
-    const handleSubmit = (e) => {
+
+    const handleSubmit = async (e) => {
         e.preventDefault()
 
         if(!title || !description || !price) return
-        console.log("Minted...")
+        setGlobalState("modal","hidden")
+        setGlobalState("modalBg","hidden")
+        setLoadingMsg('Uploading to IPFS...')
 
-        closeModal()
+        try {
+            const created = await client.add(fileUrl)
+            const metadataURI = `https://ipfs.io/ipfs/${created.path}`
+            const nft = { title, price, description, metadataURI }
+      
+            setLoadingMsg('Intializing transaction...')
+            setFileUrl(metadataURI)
+            await mintNFT(nft)
+      
+            resetForm()
+            setAlert('Minting completed...', 'green')
+            window.location.reload()
+
+        } catch (error) {
+            console.log('Error uploading file:',error)
+            setAlert('Minting Failed...','red')
+        }
     }
+
+    const changeImage = async (e) => {
+        const reader = new FileReader()
+        if (e.target.files[0]) reader.readAsDataURL(e.target.files[0])
+    
+        reader.onload = (readerEvent) => {
+            const file = readerEvent.target.result
+            setImgBase64(file)
+            setFileUrl(e.target.files[0])
+        }
+    }
+
     const closeModal =() => {
         setGlobalState("modal","animate__bounceOut animate__faster")
         setGlobalState("modalBg","animate__fadeOut ")
         setTimeout(() => {
             setGlobalState("modal","hidden")
             setGlobalState("modalBg","hidden")
+            resetForm()
         }, 750);
-        resetForm()
     }
     const resetForm=()=>{
         setFileUrl("")
         setImgBase64(null)
         setDescription("")
         setPrice("")
+        setTitle("")
+
     }
   return (
     <div className={`popup-container animate__animated  flex ${modalBg}`}>
@@ -48,7 +98,7 @@ const CreateNFT = () => {
 
                 <div>
                     <div>
-                        <img src={imgBase64 || imgHero} alt="NFT" />
+                        <img src={imgBase64 || './logo64.png'} alt="NFT" />
                     </div>
                 </div>
 
@@ -58,6 +108,7 @@ const CreateNFT = () => {
                             Choose Profile Photo
                         </span>
                         <input 
+                        onChange={changeImage}
                         className="createnft-form-input-file"
                         type="file"
                         accept="image/png, image/jpg, image/gif, image/wenp, image/jpeg" />
