@@ -88,4 +88,41 @@ contract ParibuNFT is ERC721Enumerable, Ownable {
         existingURIs[metadataURI] = 1;
         holderOf[supply] = msg.sender;
     }
+
+    //Paying to Buy Function
+    function payToBuy(uint256 id) external payable {
+        require(
+            msg.value >= minted[id - 1].cost,
+            "Ether too low for purchase!"
+        );
+        require(msg.sender != minted[id - 1].owner, "Operation Not Allowed!");
+
+        uint256 royality = (msg.value * royalityFee) / 100;
+        payTo(artist, royality);
+        payTo(minted[id - 1].owner, (msg.value - royality));
+
+        totalTx++;
+
+        transactions.push(
+            TransactionStruct(
+                totalTx,
+                msg.sender,
+                msg.value,
+                minted[id - 1].title,
+                minted[id - 1].description,
+                minted[id - 1].metadataURI,
+                block.timestamp
+            )
+        );
+
+        emit Sale(
+            totalTx,
+            msg.sender,
+            msg.value,
+            minted[id - 1].metadataURI,
+            block.timestamp
+        );
+
+        minted[id - 1].owner = msg.sender;
+    }
 }
