@@ -3,10 +3,12 @@ import { BsCheck2Circle } from "react-icons/bs"
 import { useGlobalState } from "../store"
 
 function Alert() {
+    
     const [alert] = useGlobalState('alert')
+    const [alertContainer] = useGlobalState('alertContainer')
     return (
-    <div className={`login-container flex animate__animated  ${alert.show ? 'block animate__fadeIn' : 'hidden' }`}>
-        <div className={`alert-extra animate__animated ${alert.show ? 'block animate__bounceIn' : 'hidden' }`}>
+    <div className={`alert-container flex animate__animated  ${alertContainer}`}>
+        <div className='alert-extra'>
 
         {alert.color == 'red' ? (
             <FaRegTimesCircle className="text-red-600 text-4xl"/>
@@ -16,7 +18,7 @@ function Alert() {
         <p className="text-white">{alert.msg}</p>
         </div>
     </div>
-  )
+    )
 }
 
 export default Alert

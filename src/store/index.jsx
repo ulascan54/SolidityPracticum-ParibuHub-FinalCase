@@ -7,6 +7,7 @@ const { setGlobalState,useGlobalState,getGlobalState } = createGlobalState({
     showModalBg:'hidden',
     updateModal:'hidden',
     updateModalBg:'hidden',
+    alertContainer:'hidden',
     loading:{show:false,msg:''},
     alert:{show:false,msg:'',color:''},
     connectedAccount:'',
@@ -19,8 +20,13 @@ const { setGlobalState,useGlobalState,getGlobalState } = createGlobalState({
 const setAlert=(msg,color='green')=>{
     setGlobalState('loading',{show:false,msg:''})
     setGlobalState('alert',{show:true,msg,color})
+    setGlobalState("alertContainer","animate__backInDown")
+    setTimeout(() => {
+        setGlobalState("alertContainer","animate__backOutUp")
+    }, 5250);
     setTimeout(() => {
             setGlobalState('alert',{show:false,msg,color})
+            setGlobalState("alertContainer","hidden")
     }, 6000);
 }
 

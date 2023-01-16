@@ -10,9 +10,10 @@ import Loading from "./components/Loading"
 import Alert from "./components/Alert"
 import { useEffect } from "react"
 import { isWalletConnected } from "./Blockchain.services"
+import { setAlert } from "./store"
 
 const App = () => {
-  
+  setAlert('asdaef','red')
   useEffect(async () => {
     await isWalletConnected()
   },[])

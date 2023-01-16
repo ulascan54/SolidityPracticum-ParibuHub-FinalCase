@@ -552,9 +552,17 @@ body {
   .login-container>div>div>small{
     @apply text-center
   }
+
+  .alert-container{
+    @apply fixed top-0 left-0 w-screen items-center justify-center bg-opacity-50 
+  }
+
+  .alert-container>div{
+    @apply bg-[#151c25] shadow-lg shadow-blue-500 rounded-xl min-w-min px-10 pb-2 
+  }
+
   .alert-extra{
     @apply py-3 px-10 flex flex-col justify-center items-center
   }
   /* Other classes - END */
-
 }
