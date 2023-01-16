@@ -39,4 +39,16 @@ contract ParibuNFT is ERC721Enumerable, Ownable {
 
     TransactionStruct[] transactions;
     TransactionStruct[] minted;
+
+    // Defining Constructor Parameter
+
+    constructor(
+        string memory _name,
+        string memory _symbol,
+        uint256 _royalityFee,
+        address _artist
+    ) ERC721(_name, _symbol) {
+        royalityFee = _royalityFee;
+        artist = _artist;
+    }
 }

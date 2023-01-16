@@ -7,16 +7,16 @@ This is a Particum finishing project.To successfully complete the program, I pre
 **Solidity kullanarak aşağıda verilen yapıların en az 7 tanesini içeren kendi özgün akıllı sözleşmenizi yazın.**
 
 - [ ] Function
-- [ ] Mapping
+- [x] Mapping
 - [ ] Array
-- [ ] Constructor
-- [ ] Struct
+- [x] Constructor
+- [x] Struct
 - [ ] Require
 - [ ] Modifier
-- [ ] Event
+- [x] Event
 
-- Bonus: Kontratınızda erc20/erc721/erc1155 standartlarını kullanın.
-- Bonus: Kontratınız için Front-end geliştirin.
+- [x] Bonus: Kontratınızda erc20/erc721/erc1155 standartlarını kullanın.
+- [x] Bonus: Kontratınız için Front-end geliştirin.
 
 ## Tech I use in my project
 
