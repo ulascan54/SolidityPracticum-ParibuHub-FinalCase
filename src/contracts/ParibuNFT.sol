@@ -125,4 +125,13 @@ contract ParibuNFT is ERC721Enumerable, Ownable {
 
         minted[id - 1].owner = msg.sender;
     }
+
+    //Change Price Function - updatenft
+    function changePrice(uint256 id, uint256 newPrice) external returns (bool) {
+        require(newPrice > 0 ether, "Ether too low!");
+        require(msg.sender == minted[id - 1].owner, "Operation Not Allowed!");
+
+        minted[id - 1].cost = newPrice;
+        return true;
+    }
 }
