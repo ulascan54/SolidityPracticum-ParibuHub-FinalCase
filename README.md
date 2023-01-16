@@ -20,11 +20,16 @@ This is a Particum finishing project.To successfully complete the program, I pre
 
 ## Tech I use in my project
 
+- Metamask: https://metamask.io/
 - NPM: https://nodejs.org
 - Truffle: https://github.com/trufflesuite/truffle
 - Ganache-CLI: https://docs.nethereum.com/en/latest/ethereum-and-clients/ganache-cli/
 - Tailwind CSS: https://tailwindcss.com/
 - Solidity: https://docs.soliditylang.org/en/v0.8.17/
+- ReactJs: https://reactjs.org/
+- Infuria: https://www.infura.io/
+- Web3js: https://docs.ethers.org/v5/
+- Founcets: https://faucets.chain.link/
 
 ## Resources
 
@@ -37,6 +42,7 @@ This is a Particum finishing project.To successfully complete the program, I pre
   - StarterKit: https://github.com/Daltonic/tailwind_truffle_starter_kit
 
 - Useful videos and playlists that I found and used while developing the project:
+
   - https://www.youtube.com/watch?v=vbs-_cVWXjY&list=PLWUCKsxdKl0olgEF4OxXVk2B-jwpGqL5d&index=2&ab_channel=DaulatHussain
   - https://www.youtube.com/watch?v=Y89q6T1r1Yg&t=373s&ab_channel=JavaScriptMastery
   - https://www.youtube.com/watch?v=bvn_HYpix6s&ab_channel=SonnySangha
