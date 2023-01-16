@@ -154,4 +154,13 @@ contract ParibuNFT is ERC721Enumerable, Ownable {
     {
         return minted[id - 1];
     }
+
+    // Restrieve Transaction Function
+    function getAllTransactions()
+        external
+        view
+        returns (TransactionStruct[] memory)
+    {
+        return transactions;
+    }
 }
