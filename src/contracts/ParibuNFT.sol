@@ -41,7 +41,6 @@ contract ParibuNFT is ERC721Enumerable, Ownable {
     TransactionStruct[] minted;
 
     // Defining Constructor Parameter
-
     constructor(
         string memory _name,
         string memory _symbol,
@@ -50,5 +49,43 @@ contract ParibuNFT is ERC721Enumerable, Ownable {
     ) ERC721(_name, _symbol) {
         royalityFee = _royalityFee;
         artist = _artist;
+    }
+
+    // Paying to Mint Function - create nft
+    function payToMint(
+        // parameters
+        string memory title,
+        string memory description,
+        string memory metadataURI,
+        uint256 salesPrice
+    ) external payable {
+        //require
+        require(msg.value >= cost, "Ether too low for minting!");
+        require(existingURIs[metadataURI] == 0, "This NFT is already minted!");
+        require(msg.sender != owner(), "Sales not allowed!");
+
+        uint256 royality = (msg.value * royalityFee) / 100;
+        payTo(artist, royality);
+        payTo(owner(), (msg.value - royality));
+
+        supply++;
+
+        minted.push(
+            TransactionStruct(
+                supply,
+                msg.sender,
+                salesPrice,
+                title,
+                description,
+                metadataURI,
+                block.timestamp
+            )
+        );
+
+        emit Sale(supply, msg.sender, msg.value, metadataURI, block.timestamp);
+
+        _safeMint(msg.sender, supply);
+        existingURIs[metadataURI] = 1;
+        holderOf[supply] = msg.sender;
     }
 }

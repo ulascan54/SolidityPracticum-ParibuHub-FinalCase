@@ -6,12 +6,12 @@ This is a Particum finishing project.To successfully complete the program, I pre
 
 **Solidity kullanarak aşağıda verilen yapıların en az 7 tanesini içeren kendi özgün akıllı sözleşmenizi yazın.**
 
-- [ ] Function
+- [x] Function
 - [x] Mapping
-- [ ] Array
+- [x] Array
 - [x] Constructor
 - [x] Struct
-- [ ] Require
+- [x] Require
 - [ ] Modifier
 - [x] Event
 
