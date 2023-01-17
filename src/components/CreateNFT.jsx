@@ -3,6 +3,7 @@ import { FaTimes } from "react-icons/fa"
 import { create } from 'ipfs-http-client'
 import { setAlert, setGlobalState, setLoadingMsg, useGlobalState } from "../store"
 import { mintNFT } from '../Blockchain.services'
+import { MdImageSearch } from "react-icons/md"
 
 const auth =
     'Basic ' +
@@ -100,7 +101,11 @@ const CreateNFT = () => {
 
                 <div>
                     <div>
-                        <img src={imgBase64 || './logo64.png'} alt="NFT" />
+                        {!imgBase64 ? (
+                            <MdImageSearch className='w-full h-full' />
+                        ) :(
+                            <img src={imgBase64} alt="NFT" />
+                        )}
                     </div>
                 </div>
 
