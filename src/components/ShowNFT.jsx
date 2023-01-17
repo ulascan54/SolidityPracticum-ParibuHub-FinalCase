@@ -1,17 +1,24 @@
 import Identicon from 'react-identicons'
 import { useState } from 'react'
 import { FaTimes } from "react-icons/fa"
-import { setGlobalState, useGlobalState } from "../store"
-const imgHero = "https://images.cointelegraph.com/images/1434_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDQvY2E3NzI1ZmMtNDZkNS00OGIwLTkxYWQtYTU5Zjc4YmQ5ZDQ1LmpwZw==.jpg"
+import { setGlobalState, useGlobalState, truncate } from "../store"
+
 
 const ShowNFT = () => {
     const [showModal] = useGlobalState("showModal")
     const [showModalBg] = useGlobalState("showModalBg")
+    const [nft] = useGlobalState("nft")
+    const [connectedAccount] = useGlobalState("connectedAccount")
 
-    const handleSubmit = (e) => {
-        closeModal()
+    const onChangePrice = () => {
+            setGlobalState('updateModal','animate__bounceIn block');
+            setGlobalState('updateModalBg','animate__fadeIn block animate__faster');
+            setGlobalState('showModal','hidden');
+            setGlobalState('showModalBg','hidden');
     }
+
     const closeModal = () => {
+        setGlobalState("nft", nft)
         setGlobalState("showModal", "animate__bounceOut animate__faster")
         setGlobalState("showModalBg", "animate__fadeOut ")
         setTimeout(() => {
@@ -32,46 +39,43 @@ const ShowNFT = () => {
 
                     <div>
                         <div>
-                            <img src={imgHero} alt="NFT" />
+                            <img src={nft?.metadataURI} alt={nft.title} />
                         </div>
                     </div>
 
                     <div>
-                        <h4>Title</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum reprehenderit cumque, unde quibusdam, labore, iure similique quos corrupti soluta quam id molestias dolore nostrum ratione non expedita fugit. Eligendi, id.
-                        </p>
+                        <h4>{nft?.title}</h4>
+                        <p>{nft?.description}</p>
                         <div>
                             <div>
-                                <Identicon className="identicon" string={'adefaefas'} size={50} />
+                                <Identicon className="identicon" string={truncate(nft?.owner,4,4,11)} size={50} />
                                 <div>
                                     <small>@Owner</small>
-                                    <small>0x3213123214.2312421...213</small>
+                                    <small>{truncate(nft?.owner,4,4,11)}</small>
                                 </div>
                             </div>
 
                             <div>
                                 <small>Current Price</small>
-                                <p>0.34 ETH</p>
+                                <p>{nft?.cost} ETH</p>
                             </div>
                         </div>
                     </div>
-
                     <div>
+                    {connectedAccount != nft?.owner ? (
                         <button>
                             Purchase
                         </button>
-
+                    ) : (
                         <button
-                            onClick={() => {
-                                setGlobalState('updateModal','animate__bounceIn block');
-                                setGlobalState('updateModalBg','animate__fadeIn block animate__faster');
-                                setGlobalState('showModal','hidden');
-                                setGlobalState('showModalBg','hidden');
-                            }}
+                            onClick={onChangePrice}
                         >
-                            Change
+                            Change Price
                         </button>
+                    )}
+                        
+
+                        
                     </div>
                 </div>
             </div>

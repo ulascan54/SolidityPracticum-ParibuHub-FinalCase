@@ -1,8 +1,4 @@
 import { setGlobalState, useGlobalState } from '../store'
-const imgArts = "https://images.cointelegraph.com/images/1434_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS9zdG9yYWdlL3VwbG9hZHMvdmlldy9kMDM2OWRhZmI2OWNmNTU3NjIwZmVhZDFkYTY0MzBmYy5qcGc=.jpg"
-
-
-
 
 const Artworks = () => {
 const [nfts] = useGlobalState('nfts')
@@ -26,8 +22,14 @@ return (
 )}
 
 
-const Card = ({ nft }) => (
-    <div className="artwork-container">
+const Card = ({ nft }) => {
+    const setNft = () =>{
+        setGlobalState('nft',nft)
+        setGlobalState('showModal','animate__bounceIn block');
+        setGlobalState('showModalBg','animate__fadeIn block animate__faster');
+    }
+    return (
+        <div className="artwork-container">
         <img src={nft.metadataURI} alt={nft.title} />
         <h4>{nft.title}</h4>
         <p>{nft.description}</p>
@@ -37,15 +39,13 @@ const Card = ({ nft }) => (
                 <p>{nft.cost} ETH</p>
             </div>
             <button className='artwork-button'
-            onClick={()=> {
-                setGlobalState('showModal','animate__bounceIn block');
-                setGlobalState('showModalBg','animate__fadeIn block animate__faster');
-            }}
+            onClick={setNft}
             >
             View Details
                 </button>
         </div>
     </div>
-)
+    )
+}
 
 export default Artworks
