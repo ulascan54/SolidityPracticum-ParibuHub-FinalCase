@@ -39,7 +39,7 @@ const ShowNFT = () => {
 
                     <div>
                         <div>
-                            <img src={nft?.metadataURI} alt={nft.title} />
+                            <img src={nft?.metadataURI} alt={nft?.title} />
                         </div>
                     </div>
 
@@ -48,10 +48,10 @@ const ShowNFT = () => {
                         <p>{nft?.description}</p>
                         <div>
                             <div>
-                                <Identicon className="identicon" string={truncate(nft?.owner,4,4,11)} size={50} />
+                                <Identicon className="identicon" string={nft?.owner ? truncate(nft?.owner,4,4,11): 'error'} size={50} />
                                 <div>
                                     <small>@Owner</small>
-                                    <small>{truncate(nft?.owner,4,4,11)}</small>
+                                    <small>{nft?.owner ? truncate(nft?.owner,4,4,11): 'error'}</small>
                                 </div>
                             </div>
 

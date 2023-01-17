@@ -1,19 +1,26 @@
 import { useState } from 'react'
 import {FaTimes} from "react-icons/fa"
-import { setGlobalState, useGlobalState } from "../store"
+import { setGlobalState, useGlobalState ,setLoadingMsg, setAlert } from "../store"
 const imgHero = "https://images.cointelegraph.com/images/1434_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDQvY2E3NzI1ZmMtNDZkNS00OGIwLTkxYWQtYTU5Zjc4YmQ5ZDQ1LmpwZw==.jpg"
 
 const UpdateNFT = () => {
     const [modal] = useGlobalState("updateModal")
     const [modalBg] = useGlobalState("updateModalBg")
-    const [price,setPrice] = useState("")
-    const handleSubmit = (e) => {
+    const [nft] = useGlobalState("nft")
+    const [price,setPrice] = useState(nft?.cost)
+
+    const handleSubmit = async (e) => {
         e.preventDefault()
 
-        if(!price) return
-        console.log("Updated...")
-
+        if(!price || price <= 0) return
         closeModal()
+        setLoadingMsg('Initializing price update...')
+        try {
+            setLoadingMsg('Price updating...')
+            closeModal()
+        } catch (error) {
+            setAlert()
+        }
     }
     const closeModal =() => {
         setGlobalState("updateModal","animate__bounceOut animate__faster")
