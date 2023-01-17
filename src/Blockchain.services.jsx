@@ -108,6 +108,21 @@ const getAllNFTs = async () => {
     }
 }
 
+const buyNFT = async ({ id, cost }) => {
+    try {
+      cost = window.web3.utils.toWei(cost.toString(), 'ether')
+      const contract = await getEtheriumContract()
+      const buyer = getGlobalState('connectedAccount')
+  
+      await contract.methods
+        .payToBuy(Number(id))
+        .send({ from: buyer, value: cost })
+  
+      return true
+    } catch (error) {
+      reportError(error)
+    }
+  }
 
 const structuredNfts = (nfts) => (
     nfts.map((nft)=> ({
@@ -126,4 +141,4 @@ const reportError = (error) => {
     throw new Error('No ethereum object.')
 }
 
-export { connectWallet, isWalletConnected, mintNFT, getAllNFTs, updateNFT}
+export { connectWallet, isWalletConnected, mintNFT, getAllNFTs, updateNFT, buyNFT}

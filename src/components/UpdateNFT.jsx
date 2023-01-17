@@ -68,7 +68,7 @@ const UpdateNFT = () => {
 
                 <div>
                         <input 
-                        placeholder="Price (ETH)"
+                        placeholder={nft?.cost}
                         min={0.01}
                         step={0.01}
                         name="price"

@@ -17,6 +17,10 @@ const ShowNFT = () => {
             setGlobalState('showModalBg','hidden');
     }
 
+    const handlePurchase = () => {
+
+    }
+
     const closeModal = () => {
         setGlobalState("nft", nft)
         setGlobalState("showModal", "animate__bounceOut animate__faster")
