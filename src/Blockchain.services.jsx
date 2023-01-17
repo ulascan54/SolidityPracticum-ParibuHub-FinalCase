@@ -6,7 +6,7 @@ const { ethereum } = window
 window.web3 = new Web3(ethereum)
 window.web3 = new Web3(window.web3.currentProvider)
 
-const getEtheriumContract = async () => {
+const getEthereumContract = async () => {
     const connectedAccount = getGlobalState('connectedAccount')
 
     if (connectedAccount) {
@@ -63,7 +63,7 @@ const isWalletConnected = async () => {
 const mintNFT = async ({ title, description, metadataURI, price }) => {
     try {
         price = window.web3.utils.toWei(price.toString(), 'ether')
-        const contract = await getEtheriumContract()
+        const contract = await getEthereumContract()
         const account = getGlobalState('connectedAccount')
         const mintPrice = window.web3.utils.toWei('0.01', 'ether')
     
@@ -77,9 +77,27 @@ const mintNFT = async ({ title, description, metadataURI, price }) => {
     }
 }
 
+const getAllNFTs = async () => {
+    try {
+        if(!ethereum) return alert('Please install Metamask')
+        
+        const contract = await getEthereumContract()
+        const nfts = await contract.methods.getAllNFTs().call()
+        const transactions = await contract.methods.getAllTransactions().call()
+
+        // setGlobalState('nfts', nfts)
+        // setGlobalState('transactions', transactions)
+        console.log(nfts,transactions)
+
+    }
+    catch (error){
+        reportError(error)
+    }
+}
+
 const reportError = (error) => {
     setAlert(JSON.stringify(error), 'red')
     throw new Error('No ethereum object.')
 }
 
-export { connectWallet, isWalletConnected, mintNFT}
+export { connectWallet, isWalletConnected, mintNFT, getAllNFTs}

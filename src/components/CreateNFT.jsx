@@ -48,7 +48,9 @@ const CreateNFT = () => {
       
             resetForm()
             setAlert('Minting completed...', 'green')
-            window.location.reload()
+            setTimeout(() => {
+                window.location.reload()
+            }, 6000);
 
         } catch (error) {
             console.log('Error uploading file:',error)
@@ -111,7 +113,7 @@ const CreateNFT = () => {
                         onChange={changeImage}
                         className="createnft-form-input-file"
                         type="file"
-                        accept="image/png, image/jpg, image/gif, image/wenp, image/jpeg" />
+                        accept="image/png, image/webp, image/jpg, image/gif, image/wenp, image/jpeg" />
 
                     </label>
                 </div>
