@@ -558,11 +558,33 @@ body {
   }
 
   .alert-container>div{
-    @apply bg-[#151c25] shadow-lg shadow-blue-500 rounded-xl min-w-min px-10 pb-2 
+    @apply bg-[#151c25] rounded-xl min-w-min px-5 pb-3 
   }
 
-  .alert-extra{
-    @apply py-3 px-10 flex flex-col justify-center items-center
+  .alert-container>div>p{
+    @apply max-w-lg overflow-hidden text-white
   }
+
+  .alert-red{
+    @apply py-3 px-10 flex  justify-center items-center  shadow-lg shadow-red-500
+  }
+
+  .alert-green{
+    @apply py-3 px-10 flex  justify-center items-center  shadow-lg shadow-green-500
+  }
+
+  .alert-green .alert-icon {
+    @apply text-green-600
+  }
+
+  .alert-red .alert-icon {
+    @apply text-red-600
+  }
+
+  .alert-icon{
+    @apply text-4xl mr-4
+  }
+
+
   /* Other classes - END */
 }
