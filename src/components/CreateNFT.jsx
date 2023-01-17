@@ -104,7 +104,7 @@ const CreateNFT = () => {
                         {!imgBase64 ? (
                             <MdImageSearch className='w-full h-full' />
                         ) :(
-                            <img src={imgBase64} alt="NFT" />
+                            <img src={imgBase64} alt="Selected NFT" />
                         )}
                     </div>
                 </div>

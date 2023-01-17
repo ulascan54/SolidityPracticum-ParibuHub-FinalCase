@@ -77,6 +77,20 @@ const mintNFT = async ({ title, description, metadataURI, price }) => {
     }
 }
 
+const updateNFT = async () => {
+    try {
+        cost = window.web3.utils.toWei(price.toString(), 'ether')
+        const contract = await getEthereumContract()
+        const connectedAccount = getGlobalState('connectedAccount')
+
+        await contract.methods.changePrice(Number(id),cost)
+        .send({from:connectedAccount})
+        
+    } catch (error) {
+        reportError(error)
+    }
+}
+
 const getAllNFTs = async () => {
     try {
         if(!ethereum) return alert('Please install Metamask')
@@ -111,4 +125,4 @@ const reportError = (error) => {
     throw new Error('No ethereum object.')
 }
 
-export { connectWallet, isWalletConnected, mintNFT, getAllNFTs}
+export { connectWallet, isWalletConnected, mintNFT, getAllNFTs, updateNFT}
