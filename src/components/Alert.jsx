@@ -9,7 +9,7 @@ function Alert() {
     return (
     <div className={`alert-container flex animate__animated   ${alertContainer}`}>
         <div className={`${alert.color == 'red' ? 'alert-red' : 'alert-green' } `}>
-            {alert.color == 'red' ? (
+            {alert.color == 'red'  ? (
                 <FaRegTimesCircle className="alert-icon"/>
             ) : (
                 <BsCheck2Circle className="alert-icon"/>

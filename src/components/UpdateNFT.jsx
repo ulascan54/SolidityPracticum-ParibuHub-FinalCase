@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import {FaTimes} from "react-icons/fa"
 import { setGlobalState, useGlobalState ,setLoadingMsg, setAlert } from "../store"
-const imgHero = "https://images.cointelegraph.com/images/1434_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDQvY2E3NzI1ZmMtNDZkNS00OGIwLTkxYWQtYTU5Zjc4YmQ5ZDQ1LmpwZw==.jpg"
+import { updateNFT } from '../Blockchain.services'
+
 
 const UpdateNFT = () => {
     const [modal] = useGlobalState("updateModal")
@@ -13,13 +14,23 @@ const UpdateNFT = () => {
         e.preventDefault()
 
         if(!price || price <= 0) return
+
         closeModal()
         setLoadingMsg('Initializing price update...')
+       
         try {
-            setLoadingMsg('Price updating...')
+            
             closeModal()
+            setLoadingMsg('Price updating...')
+            
+            await updateNFT({id:nft?.id, cost:price})
+            setAlert('Price updated...','green')
+            setTimeout(() => {
+                window.location.reload()
+            }, 6000);
         } catch (error) {
-            setAlert()
+            console.log('Error updating price: ',error)
+            setAlert('Update failed...','red')
         }
     }
     const closeModal =() => {
@@ -40,7 +51,7 @@ const UpdateNFT = () => {
             <form onSubmit={handleSubmit} className="updatenft-form">
 
                 <div>
-                    <p>Candy NFT</p>
+                    <p>{nft?.title} NFT</p>
                     <button type="button" onClick={closeModal}>
                         <FaTimes />
                     </button>
@@ -48,7 +59,7 @@ const UpdateNFT = () => {
 
                 <div>
                     <div>
-                        <img  src={imgHero} alt="NFT" />
+                        <img  src={nft?.metadataURI} alt={nft?.title} />
                     </div>
                 </div>
 

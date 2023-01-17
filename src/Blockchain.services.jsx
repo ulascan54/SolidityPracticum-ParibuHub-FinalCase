@@ -77,9 +77,9 @@ const mintNFT = async ({ title, description, metadataURI, price }) => {
     }
 }
 
-const updateNFT = async () => {
+const updateNFT = async ({ id, cost }) => {
     try {
-        cost = window.web3.utils.toWei(price.toString(), 'ether')
+        cost = window.web3.utils.toWei(cost.toString(), 'ether')
         const contract = await getEthereumContract()
         const connectedAccount = getGlobalState('connectedAccount')
 
@@ -107,6 +107,7 @@ const getAllNFTs = async () => {
         reportError(error)
     }
 }
+
 
 const structuredNfts = (nfts) => (
     nfts.map((nft)=> ({
