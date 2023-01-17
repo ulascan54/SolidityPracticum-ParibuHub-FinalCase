@@ -103,7 +103,7 @@ const structuredNfts = (nfts) => (
         description:nft.description,
         metadataURI:nft.metadataURI,
         timestamp:nft.timestamp,
-    }))
+    })).reverse()
 )
 
 const reportError = (error) => {

@@ -11,10 +11,9 @@ return (
         <div>
             <h4 className="text-gradient">Latest Artworks</h4>
             <div className="artworks-items-container">
-                {Array(4)
-                .fill()
+                {nfts
                 .map((nft,i)=>(
-                    <Card key={i} nft={i+1} />
+                    <Card key={i} nft={nft} />
                 ))}
             </div>
             <div className="loadmore-button">
@@ -29,13 +28,13 @@ return (
 
 const Card = ({ nft }) => (
     <div className="artwork-container">
-        <img src={imgArts} alt={"NFT Image"} />
-        <h4>NFT #{nft}</h4>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic laudantium, unde, ipsam odio molestias, eligendi illo nisi error delectus ad ratione fuga. Voluptatibus dolorem, quia mollitia saepe neque earum atque laudantium assumenda sequi molestias amet totam vitae vel ratione tempora veniam itaque necessitatibus accusamus laboriosam adipisci consequatur tempore optio nemo!</p>
+        <img src={nft.metadataURI} alt={nft.title} />
+        <h4>{nft.title}</h4>
+        <p>{nft.description}</p>
         <div>
             <div>
                 <small>Current Price</small>
-                <p>0.34 ETH</p>
+                <p>{nft.cost} ETH</p>
             </div>
             <button className='artwork-button'
             onClick={()=> {
