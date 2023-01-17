@@ -80,20 +80,31 @@ const mintNFT = async ({ title, description, metadataURI, price }) => {
 const getAllNFTs = async () => {
     try {
         if(!ethereum) return alert('Please install Metamask')
-        
+
         const contract = await getEthereumContract()
         const nfts = await contract.methods.getAllNFTs().call()
         const transactions = await contract.methods.getAllTransactions().call()
 
-        // setGlobalState('nfts', nfts)
-        // setGlobalState('transactions', transactions)
-        console.log(nfts,transactions)
+        setGlobalState('nfts', structuredNfts(nfts))
+        setGlobalState('transactions', structuredNfts(transactions))
 
     }
     catch (error){
         reportError(error)
     }
 }
+
+const structuredNfts = (nfts) => (
+    nfts.map((nft)=> ({
+        id: Number(nft.id),
+        owner: nft.owner.toLowerCase(),
+        cost:window.web3.utils.fromWei(nft.cost),
+        title:nft.title,
+        description:nft.description,
+        metadataURI:nft.metadataURI,
+        timestamp:nft.timestamp,
+    }))
+)
 
 const reportError = (error) => {
     setAlert(JSON.stringify(error), 'red')

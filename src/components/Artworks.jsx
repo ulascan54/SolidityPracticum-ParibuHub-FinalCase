@@ -1,10 +1,11 @@
-import { setGlobalState } from '../store'
+import { setGlobalState, useGlobalState } from '../store'
 const imgArts = "https://images.cointelegraph.com/images/1434_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS9zdG9yYWdlL3VwbG9hZHMvdmlldy9kMDM2OWRhZmI2OWNmNTU3NjIwZmVhZDFkYTY0MzBmYy5qcGc=.jpg"
 
 
 
 
 const Artworks = () => {
+const [nfts] = useGlobalState('nfts')
 return (
     <div className="artworks-container gradient-bg-artworks">
         <div>
