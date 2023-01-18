@@ -189,7 +189,7 @@ body {
   }
 
   .hero-identicon{
-    @apply  h-10 w-10 object-contain rounded-full mr-3
+    @apply  h-10 w-10 object-contain rounded-full mr-3 bg-white
   }
 
   .hero-imgside p{

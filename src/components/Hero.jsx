@@ -1,9 +1,10 @@
 import Identicon from 'react-identicons'
-import { setGlobalState } from '../store'
+import { setGlobalState, truncate, useGlobalState } from '../store'
 
 const imgHero = "https://images.cointelegraph.com/images/1434_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDQvY2E3NzI1ZmMtNDZkNS00OGIwLTkxYWQtYTU5Zjc4YmQ5ZDQ1LmpwZw==.jpg"
 
 export const Hero = () => {
+    const [connectedAccount] = useGlobalState('connectedAccount')
 return (
     <div className="hero-container">
         <div className="hero-bannerside">
@@ -44,9 +45,9 @@ return (
         <div className="hero-imgside">
             <img src={imgHero} alt="Hero" />
             <div>
-                <Identicon className="hero-identicon"  string={'0x21....786a'} size={50} />
+                <Identicon className="hero-identicon"  string={truncate(connectedAccount,4,4,11)} size={50} />
                 <div>
-                    <p >0x21....786a</p>
+                    <p>{truncate(connectedAccount,4,4,11)}</p>
                     <small>@you</small>
                 </div>
             </div>
