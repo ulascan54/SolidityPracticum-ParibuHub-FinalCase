@@ -2,22 +2,37 @@ import {BiTransfer} from 'react-icons/bi'
 import Identicon from 'react-identicons'
 import {MdOpenInNew} from 'react-icons/md'
 import { truncate, useGlobalState } from '../store'
+import { useEffect, useState } from 'react'
+
 const Transactions = () => {
-   const [transactions] = useGlobalState('transactions') 
+const [transactions] = useGlobalState('transactions') 
+const [end,setEnd] = useState(3)
+const [count] = useState(3)
+const [collection,setCollection] = useState([])
+
+const getCollection = () => {
+    return transactions.slice(0,end)
+}
+
+useEffect(() => {
+    setCollection(getCollection())
+},[transactions, end])
   return (
     <div className='transactions-container'>
-        <div>
-            <h4 className='transactions-title'>Latest Transactions</h4>
+        <div>Transactions
+            <h4 className='transactions-title'>
+            {collection.length > 0 ? 'Latest Transactions' : 'There is No transactions Yet'}
+            </h4>
             <div className="transactions-container-grid">
-                {transactions
+                {collection
                 .map((tx,i)=>(
                     <Transaction key={i} tx={tx} />
                 ))}
             </div>
             <div className="loadmore-button">
-            <button>
-                Load More
-                </button>
+            {collection.length>0 && transactions.length>collection.length ? (
+                    <button onClick={() => setEnd(end+count)}>Load More</button>
+                ) : null }
             </div>
         </div>
     </div>

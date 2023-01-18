@@ -46,7 +46,7 @@ const Card = ({ nft }) => {
         <div className="artwork-container">
         <img src={nft.metadataURI} alt={nft.title} />
         <h4>{nft.title}</h4>
-        <p>{nft.description}</p>
+        <p className='h-20 overflow-hidden'>{nft.description}</p>
         <div>
             <div>
                 <small>Current Price</small>
