@@ -131,7 +131,7 @@ body {
   }
 
   .header-identicon{
-    @apply   object-contain rounded-full 
+    @apply   object-contain rounded-full bg-white
   }
  /* Header component - END */
 
@@ -294,7 +294,10 @@ body {
   }
 
   .transaction-container p{
-    @apply text-sm font-medium
+    @apply text-sm font-medium text-right
+  }
+  .transaction>div{
+    @apply flex flex-col justify-center items-center py-1
   }
 /* Transactions component - END */
 

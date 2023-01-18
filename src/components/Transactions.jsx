@@ -1,15 +1,17 @@
 import {BiTransfer} from 'react-icons/bi'
+import Identicon from 'react-identicons'
 import {MdOpenInNew} from 'react-icons/md'
+import { truncate, useGlobalState } from '../store'
 const Transactions = () => {
+   const [transactions] = useGlobalState('transactions') 
   return (
     <div className='transactions-container'>
         <div>
             <h4 className='transactions-title'>Latest Transactions</h4>
             <div className="transactions-container-grid">
-                {Array(3)
-                .fill()
-                .map((nft,i)=>(
-                    <Transaction key={i} tx={i+1} />
+                {transactions
+                .map((tx,i)=>(
+                    <Transaction key={i} tx={tx} />
                 ))}
             </div>
             <div className="loadmore-button">
@@ -27,15 +29,21 @@ const Transaction = ({tx})=> (
         <div className='transaction-icon'>
             <BiTransfer />
         </div>
+
         <div className='transaction'>
-            <h4>#{tx} Fund Transfered</h4>
+            <div>
+                <Identicon className="header-identicon"  string={truncate(tx?.owner,4,4,11)} size={34}/>
+            </div>
             <small>
                 <span>Received by</span>
-                <a href="#" target="_blank">0x312312312</a>
+                <a href={tx?.metadataURI} target="_blank">{truncate(tx?.owner, 4, 4, 11)}</a>
                 <MdOpenInNew />
             </small>
         </div>
-        <p>0.32 ETH</p>
+        <div className='transaction'>
+            <h4>{tx?.title} | NFT Transfered </h4>
+            <p> Transfered: {tx?.cost} ETH</p>
+        </div>
     </div>
 )
 
