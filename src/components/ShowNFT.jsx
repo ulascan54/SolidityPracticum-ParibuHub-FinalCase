@@ -1,7 +1,8 @@
 import Identicon from 'react-identicons'
-import { useState } from 'react'
 import { FaTimes } from "react-icons/fa"
-import { setGlobalState, useGlobalState, truncate } from "../store"
+import { setGlobalState, useGlobalState, truncate, setLoadingMsg, setAlert } from "../store"
+import { buyNFT } from '../Blockchain.services'
+
 
 
 const ShowNFT = () => {
@@ -17,8 +18,19 @@ const ShowNFT = () => {
             setGlobalState('showModalBg','hidden');
     }
 
-    const handlePurchase = () => {
-
+    const handlePurchase = async () => {
+        try {
+            setLoadingMsg('Purchasing, awaiting Metamask approval...')
+            
+            await buyNFT({id:nft?.id, cost:nft?.cost})
+            setAlert('NFT purchased...','green')
+            setTimeout(() => {
+                window.location.reload()
+            }, 6000);
+        } catch (error) {
+            console.log('Error updating price: ',error)
+            setAlert('Purchase failed...','red')
+        }
     }
 
     const closeModal = () => {
@@ -52,7 +64,7 @@ const ShowNFT = () => {
                         <p>{nft?.description}</p>
                         <div>
                             <div>
-                                <Identicon className="identicon" string={nft?.owner ? truncate(nft?.owner,4,4,11): 'error'} size={50} />
+                                <Identicon className="identicon" string={nft?.owner ? truncate(nft?.owner,4,4,11) : 'error'} size={50} />
                                 <div>
                                     <small>@Owner</small>
                                     <small>{nft?.owner ? truncate(nft?.owner,4,4,11): 'error'}</small>
@@ -67,7 +79,7 @@ const ShowNFT = () => {
                     </div>
                     <div>
                     {connectedAccount != nft?.owner ? (
-                        <button>
+                        <button onClick={handlePurchase}>
                             Purchase
                         </button>
                     ) : (
