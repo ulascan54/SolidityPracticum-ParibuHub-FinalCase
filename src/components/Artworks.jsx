@@ -1,21 +1,35 @@
+import { useEffect, useState } from 'react'
 import { setGlobalState, useGlobalState } from '../store'
 
 const Artworks = () => {
 const [nfts] = useGlobalState('nfts')
+const [end,setEnd] = useState(4)
+const [count] = useState(4)
+const [collection,setCollection] = useState([])
+
+const getCollection = () => {
+    return nfts.slice(0,end)
+}
+
+useEffect(() => {
+    setCollection(getCollection())
+},[nfts, end])
+
 return (
     <div className="artworks-container gradient-bg-artworks">
         <div>
-            <h4 className="text-gradient">Latest Artworks</h4>
+            <h4 className="text-gradient">
+                {collection.length > 0 ? 'Latest Artworks' : 'There is No Artworks Yet'}
+            </h4>
             <div className="artworks-items-container">
-                {nfts
-                .map((nft,i)=>(
+                {collection.map((nft,i)=>(
                     <Card key={i} nft={nft} />
                 ))}
             </div>
             <div className="loadmore-button">
-            <button>
-                Load More
-                </button>
+                {collection.length>0 && nfts.length>collection.length ? (
+                    <button onClick={() => setEnd(end+count)}>Load More</button>
+                ) : null }
             </div>
         </div>
     </div>
