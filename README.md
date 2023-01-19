@@ -18,6 +18,30 @@ This is a Particum finishing project.To successfully complete the program, I pre
 - [x] Bonus: Kontratınızda erc20/erc721/erc1155 standartlarını kullanın.
 - [x] Bonus: Kontratınız için Front-end geliştirin.
 
+## Running The Project
+
+To run the demo follow these steps:
+
+1. Clone the project with the code below.
+   ```sh
+   # Make sure you have the above prerequisites installed already!
+   git clone https://github.com/ulascan54/SolidityPracticum-ParibuHub-FinalCase PROVIDER_NAME
+   cd PROVIDER_NAME # Navigate to the new folder.
+   yarn install # Installs all the dependencies.
+   npm install # Or installs all the dependencies.
+   ```
+2. Create an Infuria project, copy and paste your key in the spaces below.
+3. Update the `.env` file with the following details.
+   ```sh
+   ENDPOINT_URL=<PROVIDER_URL>
+   SECRET_KEY=<SECRET_PHRASE>
+   DEPLOYER_KEY=<YOUR_PRIVATE_KEY>
+   REACT_APP_INFURIA_PID=<YOUR_INFURIA_PID>
+   REACT_APP_INFURIA_API=<YOUR_INFURIA_API>
+   ```
+4. Create a CometChat project, copy and paste your key in the spaces below.
+5. Run the app using `yarn start` or `npm start`
+
 ## Tech I use in my project
 
 - Metamask: https://metamask.io/
