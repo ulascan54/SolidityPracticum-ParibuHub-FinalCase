@@ -8,7 +8,7 @@ import { MdImageSearch } from "react-icons/md"
 const auth =
     'Basic ' +
     Buffer.from(
-    'x' + ':' + 'x',
+        process.env.REACT_APP_INFURIA_PID + ':' + process.env.REACT_APP_INFURIA_API,
     ).toString('base64')
  
 

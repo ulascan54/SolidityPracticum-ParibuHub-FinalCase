@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.3d3480e4.css",
+    "main.js": "/static/js/main.eb8bd34a.js",
+    "static/media/hero.jpg": "/static/media/hero.a0d8b306da9a1cdbef90.jpg",
+    "static/media/PARIBU-NFT-logos-transparent.png": "/static/media/PARIBU-NFT-logos-transparent.6263b8b7eeaa021f45e9.png",
+    "index.html": "/index.html",
+    "main.3d3480e4.css.map": "/static/css/main.3d3480e4.css.map",
+    "main.eb8bd34a.js.map": "/static/js/main.eb8bd34a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3d3480e4.css",
+    "static/js/main.eb8bd34a.js"
+  ]
+}
