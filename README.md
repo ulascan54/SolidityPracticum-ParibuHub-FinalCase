@@ -2,6 +2,8 @@
 
 This is a Particum finishing project.To successfully complete the program, I prepared a sample project that incorporated what I had learned throughout the process.I would like to thank the [Patika](https://https://www.patika.dev/tr) team and sponsors for providing this program.
 
+> I made a video to explain my project: [see the video](https://www.loom.com/share/c91048b699d64db2b7cc1fd53e303f07)
+
 ## Project Todos:
 
 **Solidity kullanarak aşağıda verilen yapıların en az 7 tanesini içeren kendi özgün akıllı sözleşmenizi yazın.**
@@ -44,16 +46,16 @@ To run the demo follow these steps:
 
 ## Tech I use in my project
 
-- Metamask: https://metamask.io/
-- NPM: https://nodejs.org
-- Truffle: https://github.com/trufflesuite/truffle
-- Ganache-CLI: https://docs.nethereum.com/en/latest/ethereum-and-clients/ganache-cli/
-- Tailwind CSS: https://tailwindcss.com/
-- Solidity: https://docs.soliditylang.org/en/v0.8.17/
-- ReactJs: https://reactjs.org/
-- Infuria: https://www.infura.io/
-- Web3js: https://docs.ethers.org/v5/
-- Founcets: https://faucets.chain.link/
+- [Metamask](https://metamask.io/)
+- [NPM](https://nodejs.org)
+- [Truffle](https://github.com/trufflesuite/truffle)
+- [Ganache-CLI](https://docs.nethereum.com/en/latest/ethereum-and-clients/ganache-cli/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Solidity](https://docs.soliditylang.org/en/v0.8.17/)
+- [ReactJs](https://reactjs.org/) 
+- [Infuria](https://www.infura.io/) 
+- [Web3js](https://docs.ethers.org/v5/)
+- [Founcets](https://faucets.chain.link/)
 
 ## Resources
 
